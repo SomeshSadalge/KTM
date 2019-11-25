@@ -73,10 +73,7 @@ x=classifier.fit(X, y)
 pickle.dump(classifier, open('model.pkl','wb'))
 
 model = pickle.load(open('model.pkl','rb'))
-a = model.predict([[23,2,3,2,4,3]])
 
-for i in a:
-    print(i[1])
-
+print((model.predict_proba([[23,2,3,2,4,3]])*100).tolist()[0][1])
 
 
