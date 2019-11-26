@@ -16,9 +16,9 @@ def predict():
     '''
     int_features = [int(x) for x in request.form.values()]
     final_features = [np.array(int_features)]
-    prediction = model.predict(final_features)
+    prediction = ((model.predict_proba(final_features)*100).tolist()[0][1]) 
 
-    output = prediction[1]
+    output = round(prediction) 
 
     return render_template('index.html', prediction_text='KTM Bike Purchased {}%'.format(output))
 

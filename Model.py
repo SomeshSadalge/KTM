@@ -67,7 +67,7 @@ y = y.apply(lambda x : Response_to_int(x))
 
 from sklearn.linear_model import LogisticRegression  
 classifier = LogisticRegression()
-x=classifier.fit(X, y)
+classifier.fit(X, y)
 
 
 pickle.dump(classifier, open('model.pkl','wb'))
